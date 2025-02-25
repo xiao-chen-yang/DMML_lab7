@@ -1,0 +1,5 @@
+welcome-to-dmml-lab-7
+k-means
+k-medoids
+exercise-1-usarrests
+exercise-2-iris-data

@@ -2,6 +2,16 @@
 
 In this exercise, we will continue studying the `USArrest` data and apply $K$-means for clustering. 
 
+Recall that the USArrests dataset contains statistics on crime in the United States. Specifically, it includes data on the arrest rates for different types of crime in each of the 50 states in the US.
+
+The dataset includes the following columns:
+
+- Murder: The murder arrest rate (per 100,000 residents) in each state.
+- Assault: The assault arrest rate (per 100,000 residents) in each state.
+- UrbanPop: The percentage of the population living in urban areas in each state.
+- Rape: The rape arrest rate (per 100,000 residents) in each state.
+
+
 **QUESTION**:
 
 1. Perform $K$-means clustering with your chosen value of $K$. ($K$ does not have to be optimal at this stage.)

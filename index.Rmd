@@ -44,9 +44,7 @@ $K$-means is implemented in `R` using the function `kmeans` in the `stats` packa
 
 The last two arguments are required as $K$-means is implemented using an iterative algorithm and thus may take a few iterations to converge to local optimum, and it is recommended to run the algorithm multiple times to find the best initialisation that leads to a relatively good local optimum. 
 
-`kmeans` return a list of following components (it is important to understand what each component means):
-
-`kmeans` returns an object of class "`kmeans`" which has a `print` and a `fitted` method. It is a list with at least the following components:
+`kmeans` returns an object of class "`kmeans`" which has a `print` and a `fitted` method. It is a list with at least the following components (it is important to understand what each component means):
 
 - `cluster`: A vector of integers (from 1:$K$) with length equal to the number of observations indicating the cluster to which each point is allocated.
 
@@ -88,4 +86,20 @@ The output returned by `pam` includes:
 
 - `clusinfo`: A matrix where each row gives numerical information for one cluster, such as cluster size, maximum dissimilarity within the cluster, average dissimilarity. 
 
+  - `size`: Size of each cluster.
+  
+  - `max_diss`: Maximal dissimilarity between the observations in the cluster and that cluster's medoid.
+  
+  - `av_diss`: Average dissimilarity between the observations in the cluster and that cluster's medoid.
+  
+  - `diameter`: Diameter of the cluster, defined as the maximum dissimilarity between any two data points within a single cluster.
+  
+  - `separation`: Separation of the cluster, defined as the minimum distance between any data point within a cluster and any data point in a different cluster.
+
+- `isolation`: which clusters are isolated clusters
+
+  - A cluster is an L-cluster iff for each observation i the maximal dissimilarity between i and any other observation of the cluster is smaller than the minimal dissimilarity between i and any observation of another cluster.
+  
+  - A cluster is an L*-cluster iff its diameter is smaller than its separation. 
+  
 - `silinfo`: A list of silhouette width information. 

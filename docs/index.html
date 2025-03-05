@@ -176,8 +176,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><code>nstart</code>: if <code>centers</code> is a number, how many random sets should be chosen.</p></li>
 </ul>
 <p>The last two arguments are required as <span class="math inline">\(K\)</span>-means is implemented using an iterative algorithm and thus may take a few iterations to converge to local optimum, and it is recommended to run the algorithm multiple times to find the best initialisation that leads to a relatively good local optimum.</p>
-<p><code>kmeans</code> return a list of following components (it is important to understand what each component means):</p>
-<p><code>kmeans</code> returns an object of class "<code>kmeans</code>" which has a <code>print</code> and a <code>fitted</code> method. It is a list with at least the following components:</p>
+<p><code>kmeans</code> returns an object of class "<code>kmeans</code>" which has a <code>print</code> and a <code>fitted</code> method. It is a list with at least the following components (it is important to understand what each component means):</p>
 <ul>
 <li><p><code>cluster</code>: A vector of integers (from 1:<span class="math inline">\(K\)</span>) with length equal to the number of observations indicating the cluster to which each point is allocated.</p></li>
 <li><p><code>centers</code>: A matrix of cluster centres with each row representing a cluster centre.</p></li>
@@ -204,7 +203,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><code>medoids</code>: The medoids or representative objects of the clusters.</p></li>
 <li><p><code>id.med</code>: A vector of integers with length <span class="math inline">\(K\)</span> which specifies the indices giving the medoid observation numbers.</p></li>
 <li><p><code>clustering</code>: A vector of integers (from 1:<span class="math inline">\(K\)</span>) with length equal to the number of observations indicating the cluster to which each point is allocated.</p></li>
-<li><p><code>clusinfo</code>: A matrix where each row gives numerical information for one cluster, such as cluster size, maximum dissimilarity within the cluster, average dissimilarity.</p></li>
+<li><p><code>clusinfo</code>: A matrix where each row gives numerical information for one cluster, such as cluster size, maximum dissimilarity within the cluster, average dissimilarity.</p>
+<ul>
+<li><p><code>size</code>: Size of each cluster.</p></li>
+<li><p><code>max_diss</code>: Maximal dissimilarity between the observations in the cluster and that cluster's medoid.</p></li>
+<li><p><code>av_diss</code>: Average dissimilarity between the observations in the cluster and that cluster's medoid.</p></li>
+<li><p><code>diameter</code>: Diameter of the cluster, defined as the maximum dissimilarity between any two data points within a single cluster.</p></li>
+<li><p><code>separation</code>: Separation of the cluster, defined as the minimum distance between any data point within a cluster and any data point in a different cluster.</p></li>
+</ul></li>
+<li><p><code>isolation</code>: which clusters are isolated clusters</p>
+<ul>
+<li><p>A cluster is an L-cluster iff for each observation i the maximal dissimilarity between i and any other observation of the cluster is smaller than the minimal dissimilarity between i and any observation of another cluster.</p></li>
+<li><p>A cluster is an L*-cluster iff its diameter is smaller than its separation.</p></li>
+</ul></li>
 <li><p><code>silinfo</code>: A list of silhouette width information.</p></li>
 </ul>
 
